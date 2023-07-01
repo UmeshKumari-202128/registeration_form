@@ -28,7 +28,7 @@ const hobbies = [
 // Validations for all fields
 
 const validationSchema = Yup.object().shape({
-    name: Yup.string().required('Name is required').matches(/^[A-Za-z]{3,}$/, 'Name must contain at least 3 alphabetic characters'),
+    name: Yup.string().required('Name is required').matches(/^[A-Za-z\s]{3,}$/, 'Name must contain at least 3 alphabetic characters').matches(/^\D*$/, 'Name cannot contain numeric characters'),
     address: Yup.string().required('Address is required').min(5, 'Address must be at least 5 characters'),
     country: Yup.string().required('Country is required'),
     gender: Yup.string().required('Gender is required'),
